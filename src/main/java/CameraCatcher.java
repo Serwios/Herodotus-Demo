@@ -1,10 +1,13 @@
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
+import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.omg.CORBA.ObjectHelper;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
 
@@ -19,11 +22,10 @@ import org.opencv.core.Mat;
 
 public class CameraCatcher extends Application{
     private static Mat matrix;
-
-    public static void main(String[] args){
+    
+    public static void main(String[] args) throws IOException {
         Application.launch(args);
-        Detector.setImgPathIn("images/camera_test.png");
-        Detector.findFace();
+        Detector.findFace("images/camera_test.png");
     }
 
     @Override
@@ -38,7 +40,7 @@ public class CameraCatcher extends Application{
         imageView.setPreserveRatio(true);
 
         Group root = new Group(imageView);
-        Scene scene = new Scene(root, 600, 400);
+        Scene scene = new Scene(root, 500, 400);
         stage.setTitle("Camera catcher");
         stage.setScene(scene);
         stage.show();
@@ -69,7 +71,8 @@ public class CameraCatcher extends Application{
 
     public void saveImage() {
         String file = "images/camera_test.png";
-        Imgcodecs imageCodecs = new Imgcodecs();
+        String BufferedImg = "src/main/python/Imagebuf_cam_test.png";
+        Imgcodecs.imwrite(BufferedImg, matrix);
         Imgcodecs.imwrite(file, matrix);
     }
 }
