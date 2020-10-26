@@ -19,7 +19,7 @@ for c1 in myList:
 	classNames.append(os.path.splitext(c1)[0])
 
 #MAKE FROM THEM DESKRIPTORS AND KEYPOINTS
-orb = cv2.ORB_create(nfeatures=500)
+orb = cv2.ORB_create(nfeatures=100000)
 camera_out = cv2.imread('Imagebuf_cam_test.png', 1)
 camera_out_orig = cv2.imread('Imagebuf_cam_test.png', 1)
 camera_out = cv2.cvtColor(camera_out, cv2.COLOR_BGR2GRAY)
@@ -56,12 +56,12 @@ def findID(img, desList, thresh):
 	return finalVal
 
 desList = findDes(images)
-id = findID(camera_out, desList, 15)
-#print(id)
+id = findID(camera_out, desList, 1000)
+print(id)
 
-if id == 0:
+if id == 1:
 	print(camera_out_orig, classNames[id])
-	zero_path = 'ImagesQuery/'+classNames[0]+'.jpg'
+	zero_path = 'ImagesQuery/'+classNames[id]+'.jpg'
 	#print(zero_path)
 	zero_read = cv2.imread(zero_path)
 	#print(zero_read)

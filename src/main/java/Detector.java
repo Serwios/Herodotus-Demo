@@ -3,10 +3,7 @@ import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.imgproc.Imgproc;
 import org.opencv.objdetect.CascadeClassifier;
 
-import java.*;
-
 public class Detector{
-    private static String imgPathOut;
     public static int countOfFaces;
 
     public static void findFace(String imgPathIn) {
@@ -34,7 +31,7 @@ public class Detector{
              Imgproc.rectangle(src, new Point(rect.x, rect.y), new Point(rect.x + rect.width, rect.y + rect.height) , new Scalar(0,0,255), 10);
          }
 
-        imgPathOut = "images/test_out.png";
+        String imgPathOut = "images/test_out.png";
         Imgcodecs.imwrite(imgPathOut, src);
         System.out.println("\n [[Detection finished]]");
 

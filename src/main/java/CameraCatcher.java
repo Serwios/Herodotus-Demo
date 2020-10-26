@@ -1,35 +1,31 @@
 import javafx.application.Application;
 import javafx.embed.swing.SwingFXUtils;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.image.WritableImage;
-import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
-import org.omg.CORBA.ObjectHelper;
+import org.opencv.core.Core;
+import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 import org.opencv.videoio.VideoCapture;
 
 import java.awt.image.BufferedImage;
 import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
 
 public class CameraCatcher extends Application{
     private static Mat matrix;
     
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException, InterruptedException {
         Application.launch(args);
         Detector.findFace("images/camera_test.png");
+        PythonStarter.recognizeFace();
     }
 
     @Override
-    public void start(Stage stage) throws IOException {
+    public void start(Stage stage) {
         CameraCatcher obj = new CameraCatcher();
         WritableImage writableImage = obj.captureSnapShot();
         obj.saveImage();
