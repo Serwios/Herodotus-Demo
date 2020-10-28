@@ -71,5 +71,7 @@ public class CameraCatcher extends Application{
         Imgcodecs.imwrite(BufferedImg, matrix);
         Imgcodecs.imwrite(file, matrix);
     }
+
+
 }
 
