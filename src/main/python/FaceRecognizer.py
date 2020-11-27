@@ -82,3 +82,5 @@ if id > -1:
 	compared_images = cv2.drawMatchesKnn(camera_out_orig, kp1, zero_read, kp2, good, None, flags=2)
 	cv2.imshow("img3", compared_images)
 	cv2.waitKey(0)
+
+	print("Hello")
