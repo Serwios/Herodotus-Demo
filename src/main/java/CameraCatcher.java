@@ -15,7 +15,7 @@ import java.awt.image.DataBufferByte;
 import java.awt.image.WritableRaster;
 import java.io.IOException;
 
-public class CameraCatcher extends Application{
+public class CameraCatcher extends Application {
     private static Mat matrix;
     
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -62,6 +62,7 @@ public class CameraCatcher extends Application{
                 WritableImage = SwingFXUtils.toFXImage(image, null);
             }
         }
+
         return WritableImage;
     }
 
@@ -71,7 +72,5 @@ public class CameraCatcher extends Application{
         Imgcodecs.imwrite(BufferedImg, matrix);
         Imgcodecs.imwrite(file, matrix);
     }
-
-
 }
 
