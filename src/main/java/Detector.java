@@ -10,7 +10,6 @@ public class Detector {
         System.loadLibrary(Core.NATIVE_LIBRARY_NAME);
 
         Mat src = Imgcodecs.imread(imgPathIn);
-        System.out.println(src);
         String xmlFile = "xml/lbpcascade_frontalface.xml";
         CascadeClassifier cc = new CascadeClassifier(xmlFile);
         MatOfRect faceDetection = new MatOfRect();
