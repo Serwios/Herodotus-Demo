@@ -21,8 +21,8 @@ public class Detector {
         }else {
             if (countOfFaces == 1) {
                 System.out.println("There is one face");
-            }else {
-            System.out.println("There imatrixs " + faceDetection.toArray().length + " faces: ");
+            } else {
+                System.out.println("There imatrixs " + faceDetection.toArray().length + " faces: ");
             }
         }
 
